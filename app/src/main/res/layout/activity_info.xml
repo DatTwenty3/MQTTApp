@@ -27,7 +27,7 @@
         android:layout_height="31dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="368dp"
-        android:text="Email: datle.1714121@hcmut.edu.vn"
+        android:text="Email: dat.le.1714121@hcmut.edu.vn"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -62,4 +62,14 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageLogoLDInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="504dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logold" />
 </androidx.constraintlayout.widget.ConstraintLayout>
