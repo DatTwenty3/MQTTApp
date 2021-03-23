@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         //FINGER PRINT
-        /*Executor executor= ContextCompat.getMainExecutor(this);
+        Executor executor= ContextCompat.getMainExecutor(this);
         BiometricPrompt biometricPrompt = new BiometricPrompt(this, executor, new BiometricPrompt.AuthenticationCallback() {
             @Override
             public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                 //.setSubtitle("Use Finger to login")
                 .setNegativeButtonText("Cancel")
                 .build();
-        biometricPrompt.authenticate(promptInfo);*/
+        biometricPrompt.authenticate(promptInfo);
 
     }
 }
