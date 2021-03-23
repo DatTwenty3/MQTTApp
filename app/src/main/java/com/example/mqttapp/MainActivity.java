@@ -319,35 +319,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //FINGER PRINT
-        Executor executor= ContextCompat.getMainExecutor(this);
-        BiometricPrompt biometricPrompt = new BiometricPrompt(this, executor, new BiometricPrompt.AuthenticationCallback() {
-            @Override
-            public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
-                super.onAuthenticationError(errorCode, errString);
-                //Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_LONG).show();
-                onBackPressed();
-            }
-
-            @Override
-            public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
-                super.onAuthenticationSucceeded(result);
-                Toast.makeText(MainActivity.this, "Login Success!", Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onAuthenticationFailed() {
-                super.onAuthenticationFailed();
-                Toast.makeText(MainActivity.this, "Login Failed! Please try again. ", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
-                .setTitle("LOGIN TO LEDAT")
-                //.setSubtitle("Use Finger to login")
-                .setNegativeButtonText("Cancel")
-                .build();
-        biometricPrompt.authenticate(promptInfo);
     }
 
     //HAM PUBLISH MQTT
