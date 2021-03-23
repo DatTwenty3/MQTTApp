@@ -24,23 +24,21 @@ public class LoginActivity extends AppCompatActivity {
         final CircleMenuView circleMenu = findViewById(R.id.circleMenu);
 
         circleMenu.setEventListener(new CircleMenuView.EventListener(){
-            @Override
-            public void onMenuOpenAnimationStart(@NonNull CircleMenuView view) {
-
-            }
 
             @Override
-            public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int buttonIndex) {
-                super.onButtonClickAnimationStart(view, buttonIndex);
-                switch (buttonIndex){
+            public void onButtonClickAnimationEnd(@NonNull CircleMenuView view, int buttonIndex) {
+                super.onButtonClickAnimationEnd(view, buttonIndex);
+                switch (buttonIndex) {
                     case 0:
                         Intent intentMain = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intentMain);
                         break;
+
                     case 1:
                         Intent intentInfo = new Intent(LoginActivity.this, InfoActivity.class);
                         startActivity(intentInfo);
                         break;
+
                     case 2:
                         Intent intentMap = new Intent(LoginActivity.this, MapActivity.class);
                         startActivity(intentMap);
@@ -51,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         //FINGER PRINT
-        Executor executor= ContextCompat.getMainExecutor(this);
+        /*Executor executor= ContextCompat.getMainExecutor(this);
         BiometricPrompt biometricPrompt = new BiometricPrompt(this, executor, new BiometricPrompt.AuthenticationCallback() {
             @Override
             public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
@@ -78,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                 //.setSubtitle("Use Finger to login")
                 .setNegativeButtonText("Cancel")
                 .build();
-        biometricPrompt.authenticate(promptInfo);
+        biometricPrompt.authenticate(promptInfo);*/
 
     }
 }
