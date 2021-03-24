@@ -25,24 +25,10 @@
         android:layout_width="302dp"
         android:layout_height="140dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="152dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logold" />
-
-    <TextView
-        android:id="@+id/textLableLD"
-        android:layout_width="302dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="248dp"
-        android:text="LEDAT"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="33sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:srcCompat="@drawable/logoledat" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
