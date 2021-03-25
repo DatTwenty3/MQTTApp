@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/black"
     tools:context=".LoginActivity">
 
     <com.ramotion.circlemenu.CircleMenuView
@@ -22,13 +22,13 @@
 
     <ImageView
         android:id="@+id/imageLogoLDLogin"
-        android:layout_width="302dp"
-        android:layout_height="140dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="152dp"
+        android:layout_width="120dp"
+        android:layout_height="122dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="168dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logoledat" />
+        app:srcCompat="@drawable/logoledat_n" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

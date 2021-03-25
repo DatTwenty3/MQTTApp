@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/black"
     tools:context=".InfoActivity">
 
     <TextView
@@ -65,11 +65,11 @@
 
     <ImageView
         android:id="@+id/imageLogoLDInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
+        android:layout_width="65dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="176dp"
         android:layout_marginTop="504dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logoledat" />
+        app:srcCompat="@drawable/logoledat_n" />
 </androidx.constraintlayout.widget.ConstraintLayout>
