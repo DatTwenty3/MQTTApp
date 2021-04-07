@@ -2,14 +2,17 @@ package com.example.mqttapp;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.biometric.BiometricPrompt;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.Viewport;
 import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.DataPointInterface;
 import com.jjoe64.graphview.series.LineGraphSeries;
+import com.jjoe64.graphview.series.OnDataPointTapListener;
+import com.jjoe64.graphview.series.Series;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
@@ -25,8 +28,8 @@ import java.util.Random;
 
 public class ChartActivity extends AppCompatActivity {
 
-    private LineGraphSeries<DataPoint> series;
-    private static final Random RANDOM = new Random();
+    private LineGraphSeries<DataPoint> seriesTemp;
+    private LineGraphSeries<DataPoint> seriesAirHumi;
     private int lastX = 0;
 
     //MQTT
@@ -43,21 +46,48 @@ public class ChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
 
-        //GRAPH
-        GraphView graph = (GraphView) findViewById(R.id.graph);
+        //GRAPH CHART TEMP
+        GraphView graphTemp  = (GraphView) findViewById(R.id.graphTemperature);
         //DATA
-        series = new LineGraphSeries<DataPoint>();
-        graph.addSeries(series);
+        seriesTemp = new LineGraphSeries<DataPoint>();
+        graphTemp.addSeries(seriesTemp);
         //CUSTOMIZE A LITTLE BIT VIEWPOINT
-        Viewport viewport = graph.getViewport();
-        viewport.setYAxisBoundsManual(true);
-        viewport.setMinY(0);
-        viewport.setMaxY(100);
-        viewport.setScrollable(true);
-        viewport.scrollToEnd();
+        Viewport viewportTemp = graphTemp.getViewport();
+        viewportTemp.setYAxisBoundsManual(true);
+        viewportTemp.setMinY(0);
+        viewportTemp.setMaxY(100);
+        viewportTemp.setScrollable(true);
+        //Tap Listener on Data Points
+        seriesTemp.setOnDataPointTapListener(new OnDataPointTapListener() {
+            @Override
+            public void onTap(Series series, DataPointInterface dataPoint) {
+                String msg = "Temperature: " + dataPoint.getY() + "°C";
+                Toast.makeText(ChartActivity.this, msg, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //GRAPH CHART AIR HUMI
+        GraphView graphAH  = (GraphView) findViewById(R.id.graphAirHumi);
+        //DATA
+        seriesAirHumi = new LineGraphSeries<DataPoint>();
+        graphAH.addSeries(seriesAirHumi);
+        //CUSTOMIZE A LITTLE BIT VIEWPOINT
+        Viewport viewportAH = graphAH.getViewport();
+        viewportAH.setYAxisBoundsManual(true);
+        viewportAH.setMinY(0);
+        viewportAH.setMaxY(100);
+        viewportAH.setScrollable(true);
+        //Tap Listener on Data Points
+        seriesAirHumi.setOnDataPointTapListener(new OnDataPointTapListener() {
+            @Override
+            public void onTap(Series series, DataPointInterface dataPoint) {
+                String msg = "Air Humidity: " + dataPoint.getY() + "%";
+                Toast.makeText(ChartActivity.this, msg, Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         //MQTT
-
         MqttConnectOptions options = new MqttConnectOptions();
 
         //LOGIN MQTT
@@ -80,8 +110,8 @@ public class ChartActivity extends AppCompatActivity {
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
 
+                dataSensor = message + "";
                 if(topic.equals("Temp")) {
-                    dataSensor = message + "";
                     Temp = Integer.valueOf(dataSensor);
                 }
 
@@ -100,7 +130,6 @@ public class ChartActivity extends AppCompatActivity {
 
             }
         });
-        ///////////////////////////////////////////////////////////////////////////
 
         //KET NOI VOI MQTT
         try {
@@ -174,8 +203,6 @@ public class ChartActivity extends AppCompatActivity {
                     } catch (MqttException e) {
                         e.printStackTrace();
                     }
-
-                    ///////////////////////////////////////////////////////////////////////////
                 }
 
                 @Override
@@ -201,7 +228,10 @@ public class ChartActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            addEntry();
+
+                            addEntryTemp();
+                            addEntryAH();
+
                         }
                     });
 
@@ -216,8 +246,12 @@ public class ChartActivity extends AppCompatActivity {
         }).start();
     }
 
-    private void addEntry(){
-        series.appendData(new DataPoint(lastX++, Temp), true, 10);
+    private void addEntryTemp(){
+        seriesTemp.appendData(new DataPoint(lastX++, Temp), true, 10);
+
+    }
+    private void addEntryAH(){
+        seriesAirHumi.appendData(new DataPoint(lastX++, AirHumi), true, 10);
 
     }
 }

@@ -8,7 +8,31 @@
     tools:context=".ChartActivity">
 
     <com.jjoe64.graphview.GraphView
-        android:id="@+id/graph"
+        android:id="@+id/graphAirHumi"
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:layout_marginTop="324dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textLabelAirHumiChart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="280dp"
+        android:text="💧 AIR HUMIDITY"
+        android:textColor="#FFD2D9D0"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graphTemperature"
         android:layout_width="match_parent"
         android:layout_height="200dip"
         android:layout_marginTop="60dp"
@@ -25,7 +49,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="🌡 TEMPERATURE"
-        android:textColor="#000000"
+        android:textColor="#FFD2D9D0"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
