@@ -46,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
     TextView txtSttDV1;
     TextView txtSttDV2;
     TextView txtCN;
+    TextView txtpH;
+    TextView txtWaTemp;
+    TextView txtORP;
+
 
     //VOICE CONTROL
     ImageView imgMicCtrl;
@@ -118,6 +122,19 @@ public class MainActivity extends AppCompatActivity {
                 if(topic.equals("Power")) {
                     txtPw.setText(message + "");
                 }
+
+                if(topic.equals("pH")) {
+                    txtpH.setText(message + "");
+                }
+
+                if(topic.equals("ORP")) {
+                    txtORP.setText(message + "");
+                }
+
+                if(topic.equals("WaTemp")) {
+                    txtWaTemp.setText(message + "");
+                }
+
             }
 
             @Override
@@ -144,6 +161,9 @@ public class MainActivity extends AppCompatActivity {
                     String topicSM = "SoilMois";
                     String topicPW = "Power";
                     String topicStt = "Status";
+                    String topicpH = "pH";
+                    String topicORP = "ORP";
+                    String topicWaTemp = "WaTemp";
 
                     int qos = 2;
 
@@ -242,6 +262,63 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
+                    try {
+                        IMqttToken subToken = client.subscribe(topicpH, qos);
+                        subToken.setActionCallback(new IMqttActionListener() {
+                            @Override
+                            public void onSuccess(IMqttToken asyncActionToken) {
+                                Log.d("MQTT","Subscrice " + topicpH + " Sucess!");
+                            }
+
+                            @Override
+                            public void onFailure(IMqttToken asyncActionToken,
+                                                  Throwable exception) {
+                                Log.d("MQTT","Subscrice " + topicpH + " Failed!");
+
+                            }
+                        });
+                    } catch (MqttException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        IMqttToken subToken = client.subscribe(topicORP, qos);
+                        subToken.setActionCallback(new IMqttActionListener() {
+                            @Override
+                            public void onSuccess(IMqttToken asyncActionToken) {
+                                Log.d("MQTT","Subscrice " + topicORP + " Sucess!");
+                            }
+
+                            @Override
+                            public void onFailure(IMqttToken asyncActionToken,
+                                                  Throwable exception) {
+                                Log.d("MQTT","Subscrice " + topicORP + " Failed!");
+
+                            }
+                        });
+                    } catch (MqttException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        IMqttToken subToken = client.subscribe(topicWaTemp, qos);
+                        subToken.setActionCallback(new IMqttActionListener() {
+                            @Override
+                            public void onSuccess(IMqttToken asyncActionToken) {
+                                Log.d("MQTT","Subscrice " + topicWaTemp + " Sucess!");
+                            }
+
+                            @Override
+                            public void onFailure(IMqttToken asyncActionToken,
+                                                  Throwable exception) {
+                                Log.d("MQTT","Subscrice " + topicWaTemp + " Failed!");
+
+                            }
+                        });
+                    } catch (MqttException e) {
+                        e.printStackTrace();
+                    }
+
                     ///////////////////////////////////////////////////////////////////////////
                 }
 
@@ -288,6 +365,9 @@ public class MainActivity extends AppCompatActivity {
         txtAH = (TextView) findViewById(R.id.textAirHumi);
         txtSM = (TextView) findViewById(R.id.textSoilMoisture);
         txtPw = (TextView) findViewById(R.id.textPower);
+        txtpH = (TextView) findViewById(R.id.textpH);
+        txtWaTemp = (TextView) findViewById(R.id.textWaterTemperature);
+        txtORP = (TextView) findViewById(R.id.textORP);
 
         txtSttDV1 = (TextView) findViewById(R.id.textStatusDV1);
         txtSttDV2 = (TextView) findViewById(R.id.textStatusDV2);
