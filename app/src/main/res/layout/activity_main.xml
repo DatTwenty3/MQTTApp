@@ -9,6 +9,45 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textTurbi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="368dp"
+        android:text="null"
+        android:textColor="#FFEB3B"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textLabelTurbi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="368dp"
+        android:text="💧 TURBIDITY:"
+        android:textColor="#FFD2D9D0"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textLabelUnitTurbi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="368dp"
+        android:text="V"
+        android:textColor="#FFd2d9d0"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textLabelWaterTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -108,7 +147,7 @@
         android:layout_width="401dp"
         android:layout_height="48dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="368dp"
+        android:layout_marginTop="396dp"
         android:text="🤖 STATUS"
         android:textAlignment="textStart"
         android:textAllCaps="false"
@@ -119,14 +158,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textLabelStatusDV2"
-        android:layout_width="205dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="460dp"
-        android:text="💡 WATER PUMP"
-        android:textColor="#FFD2D9D0"
-        android:textSize="18sp"
+        android:id="@+id/textLabelVoiceCtrl"
+        android:layout_width="401dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="532dp"
+        android:text="🗣 VOICE CONTROL"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="#00BCD4"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -136,7 +177,7 @@
         android:layout_width="79dp"
         android:layout_height="29dp"
         android:layout_marginStart="212dp"
-        android:layout_marginTop="416dp"
+        android:layout_marginTop="444dp"
         android:text="❎"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -148,17 +189,31 @@
         android:layout_width="50dp"
         android:layout_height="45dp"
         android:layout_marginStart="168dp"
-        android:layout_marginTop="604dp"
+        android:layout_marginTop="632dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/microphone" />
+
+    <TextView
+        android:id="@+id/textLabelMicControl"
+        android:layout_width="401dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="580dp"
+        android:text="Tap mic and say some thing . . ."
+        android:textAlignment="center"
+        android:textColor="#FFD2D9D0"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textStatusDV2"
         android:layout_width="79dp"
         android:layout_height="29dp"
         android:layout_marginStart="212dp"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="488dp"
         android:text="❎"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -170,7 +225,7 @@
         android:layout_width="205dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="416dp"
+        android:layout_marginTop="444dp"
         android:text="💡 LIGHT"
         android:textColor="#FFD2D9D0"
         android:textSize="18sp"
@@ -179,30 +234,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textLabelMicControl"
-        android:layout_width="401dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="552dp"
-        android:text="Tap mic and say some thing . . ."
-        android:textAlignment="center"
+        android:id="@+id/textLabelStatusDV2"
+        android:layout_width="205dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="488dp"
+        android:text="💡 WATER PUMP"
         android:textColor="#FFD2D9D0"
         android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textLabelVoiceCtrl"
-        android:layout_width="401dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="504dp"
-        android:text="🗣 VOICE CONTROL"
-        android:textAlignment="textStart"
-        android:textAllCaps="false"
-        android:textColor="#00BCD4"
-        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

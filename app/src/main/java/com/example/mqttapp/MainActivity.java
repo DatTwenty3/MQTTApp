@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txtpH;
     TextView txtWaTemp;
     TextView txtORP;
+    TextView txtTurbi;
 
 
     //VOICE CONTROL
@@ -135,6 +136,10 @@ public class MainActivity extends AppCompatActivity {
                     txtWaTemp.setText(message + "");
                 }
 
+                if(topic.equals("Turbi")) {
+                    txtTurbi.setText(message + "");
+                }
+
             }
 
             @Override
@@ -164,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
                     String topicpH = "pH";
                     String topicORP = "ORP";
                     String topicWaTemp = "WaTemp";
+                    String topicTurbi = "Turbi";
 
                     int qos = 2;
 
@@ -319,6 +325,25 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
+                    try {
+                        IMqttToken subToken = client.subscribe(topicTurbi, qos);
+                        subToken.setActionCallback(new IMqttActionListener() {
+                            @Override
+                            public void onSuccess(IMqttToken asyncActionToken) {
+                                Log.d("MQTT","Subscrice " + topicTurbi + " Sucess!");
+                            }
+
+                            @Override
+                            public void onFailure(IMqttToken asyncActionToken,
+                                                  Throwable exception) {
+                                Log.d("MQTT","Subscrice " + topicTurbi + " Failed!");
+
+                            }
+                        });
+                    } catch (MqttException e) {
+                        e.printStackTrace();
+                    }
+
                     ///////////////////////////////////////////////////////////////////////////
                 }
 
@@ -368,6 +393,7 @@ public class MainActivity extends AppCompatActivity {
         txtpH = (TextView) findViewById(R.id.textpH);
         txtWaTemp = (TextView) findViewById(R.id.textWaterTemperature);
         txtORP = (TextView) findViewById(R.id.textORP);
+        txtTurbi = (TextView) findViewById(R.id.textTurbi);
 
         txtSttDV1 = (TextView) findViewById(R.id.textStatusDV1);
         txtSttDV2 = (TextView) findViewById(R.id.textStatusDV2);
