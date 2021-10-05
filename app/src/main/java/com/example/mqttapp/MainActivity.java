@@ -41,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
 
     TextView txtTem;
     TextView txtAH;
-    TextView txtSM;
-    TextView txtPw;
+    //TextView txtSM;
+    //TextView txtPw;
     TextView txtSttDV1;
     TextView txtSttDV2;
     TextView txtCN;
     TextView txtpH;
-    TextView txtWaTemp;
+    //TextView txtWaTemp;
     TextView txtORP;
     TextView txtTurbi;
 
@@ -115,15 +115,16 @@ public class MainActivity extends AppCompatActivity {
                 if(topic.equals("AirHumi")) {
                     txtAH.setText(message + "");
                 }
-
+                /*
                 if(topic.equals("SoilMois")) {
                     txtSM.setText(message + "");
                 }
-
+                */
+                /*
                 if(topic.equals("Power")) {
                     txtPw.setText(message + "");
                 }
-
+                */
                 if(topic.equals("pH")) {
                     txtpH.setText(message + "");
                 }
@@ -131,10 +132,11 @@ public class MainActivity extends AppCompatActivity {
                 if(topic.equals("ORP")) {
                     txtORP.setText(message + "");
                 }
-
+                /*
                 if(topic.equals("WaTemp")) {
                     txtWaTemp.setText(message + "");
                 }
+                 */
 
                 if(topic.equals("Turbi")) {
                     txtTurbi.setText(message + "");
@@ -388,10 +390,10 @@ public class MainActivity extends AppCompatActivity {
 
         txtTem = (TextView) findViewById(R.id.textTemperature);
         txtAH = (TextView) findViewById(R.id.textAirHumi);
-        txtSM = (TextView) findViewById(R.id.textSoilMoisture);
-        txtPw = (TextView) findViewById(R.id.textPower);
+        //txtSM = (TextView) findViewById(R.id.textSoilMoisture);
+        //txtPw = (TextView) findViewById(R.id.textPower);
         txtpH = (TextView) findViewById(R.id.textpH);
-        txtWaTemp = (TextView) findViewById(R.id.textWaterTemperature);
+        //txtWaTemp = (TextView) findViewById(R.id.textWaterTemperature);
         txtORP = (TextView) findViewById(R.id.textORP);
         txtTurbi = (TextView) findViewById(R.id.textTurbi);
 
