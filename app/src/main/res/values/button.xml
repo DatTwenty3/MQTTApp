@@ -6,6 +6,7 @@
         <item>@drawable/ic_info </item>
         <item>@drawable/ic_location</item>
         <item>@drawable/ic_baseline_show_chart</item>
+        <item>@drawable/ic_baseline_videocam_24</item>
     </array>
 
     <array name = "colors">
@@ -13,6 +14,7 @@
         <item>@android:color/holo_green_dark</item>
         <item>@android:color/holo_red_light</item>
         <item>@android:color/holo_purple</item>
+        <item>@android:color/holo_orange_light</item>
     </array>
 
 </resources>

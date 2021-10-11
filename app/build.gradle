@@ -52,4 +52,6 @@ dependencies {
     implementation 'com.ramotion.circlemenu:circle-menu:0.3.2'
     //Chart
     implementation 'com.jjoe64:graphview:4.2.2'
+    //Cam IP
+    implementation 'com.github.marcoscgdev:IPCamView:1.0.0'
 }

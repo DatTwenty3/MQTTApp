@@ -43,9 +43,15 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intentMap = new Intent(LoginActivity.this, MapActivity.class);
                         startActivity(intentMap);
                         break;
+
                     case 3:
                         Intent intentChart = new Intent(LoginActivity.this, ChartActivity.class);
                         startActivity(intentChart);
+                        break;
+
+                    case 4:
+                        Intent intentCam = new Intent(LoginActivity.this, CamActivity.class);
+                        startActivity(intentCam);
                         break;
                 }
             }
