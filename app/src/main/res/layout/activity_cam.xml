@@ -7,46 +7,14 @@
     android:background="@color/black"
     tools:context=".CamActivity">
 
-    <com.marcoscg.ipcamview.IPCamView
-        android:id="@+id/ip_cam_view"
+
+    <WebView
+        android:id="@+id/webViewCam"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:scaleType="fitCenter"
-        app:interval="1500"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:url="YOUR_STREAM_URL" />
-
-    <EditText
-        android:id="@+id/textURL"
-        android:layout_width="348dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="80dp"
-        android:text="Enter URL your Camera IP"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ip_cam_view"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/buttonStartCamIP"
-        android:layout_width="98dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="28dp"
-        android:text="Start !"
-        android:textStyle="bold"
-        app:backgroundTint="#E6FFC400"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ip_cam_view"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
